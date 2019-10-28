@@ -3,85 +3,98 @@ package Unit3.day1;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import static Unit3.day1.StatisticsCalcTester.files;
 
 public class StatisticsCalc {
- private int array[];
+	private int[] array;
 
- /**
-  * Reads the first line from the file to determine the number of integers in
-  * the file. Creates an array based upon this number. Then, reads the rest
-  * of the file into the array.
-  * 
-  * @throws FileFormatException
-  */
- public StatisticsCalc(String fileName) throws FileNotFoundException {
+	/**
+	 * Reads the first line from the file to determine the number of integers in
+	 * the file. Creates an array based upon this number. Then, reads the rest
+	 * of the file into the array.
+	 *
+	 * @throws FileFormatException
+	 */
+	public StatisticsCalc(String fileName) throws FileNotFoundException, FileFormatException {
 
-  Scanner in = new Scanner(new FileReader(fileName));
-  int max = in.nextInt();
-  array = new int[max];
+		Scanner in = new Scanner(new FileReader(fileName));
+		int max = in.nextInt();
+		array = new int[max];
+		try {
+			for (int i = 0; i < max; i++) {
+				array[i] = in.nextInt();
+			}
+			Arrays.sort(array);
 
-  for (int i = 0; i < max; i++) {
-   array[i] = in.nextInt();
-  }
-  Arrays.sort(array);
-  in.close();
- }
+		}
+		catch (InputMismatchException ex) {
+			throw new FileFormatException("Non-integer data in file.");
+		}
+		catch (NoSuchElementException ex) {
+			throw new FileFormatException("Not enough data in file. Expecting " + max + " numbers.");
+		}
+		finally {
+			in.close();
+		}
+	}
 
- /** Returns the mean of the integers. */
- public double getMean() {
-  long sum = 0;
 
-  for (int i = 0; i < array.length; i++) {
-   sum += array[i];
-  }
+	/** Returns the mean of the integers. */
+	public double getMean() {
+		long sum = 0;
 
-  return (double) sum / array.length;
- }
+		for (int i = 0; i < array.length; i++) {
+			sum += array[i];
+		}
 
- /** Returns the minimum value of the integers in the array. */
- public int getMin() {
-  return array[0];
- }
+		return (double) sum / array.length;
+	}
 
- /** Returns the maximum value of the integers in the array. */
- public int getMax() {
-  return array[array.length - 1];
- }
+	/** Returns the minimum value of the integers in the array. */
+	public int getMin() {
+		return array[0];
+	}
 
- /** Returns the median value of the integers in the array. */
- public double getMedian() {
-  // If odd
-  if (array.length % 2 == 1) {
-   // Integer division intended here.
-   return array[array.length / 2];
-  }
+	/** Returns the maximum value of the integers in the array. */
+	public int getMax() {
+		return array[array.length - 1];
+	}
 
-  // If even
-  else {
-   int midpoint = array.length / 2;
-   return (double) (array[midpoint - 1] + array[midpoint]) / 2;
-  }
- }
+	/** Returns the median value of the integers in the array. */
+	public double getMedian() {
+		// If odd
+		if (array.length % 2 == 1) {
+			// Integer division intended here.
+			return array[array.length / 2];
+		}
 
- /** Returns the statistical range of the integers in the array. */
- public int getRange() {
-  return array[array.length - 1] - array[0];
- }
+		// If even
+		else {
+			int midpoint = array.length / 2;
+			return (double) (array[midpoint - 1] + array[midpoint]) / 2;
+		}
+	}
 
- /** Returns the standard deviation for the integers in the array. */
- public double getStdDev() {
-  float variance = 0;
-  double mean = getMean();
+	/** Returns the statistical range of the integers in the array. */
+	public int getRange() {
+		return array[array.length - 1] - array[0];
+	}
 
-  for (int i = 0; i < array.length; i++) {
-   variance += Math.pow(mean - array[i], 2);
-  }
+	/** Returns the standard deviation for the integers in the array. */
+	public double getStdDev() {
+		float variance = 0;
+		double mean = getMean();
 
-  variance /= array.length;
+		for (int i = 0; i < array.length; i++) {
+			variance += Math.pow(mean - array[i], 2);
+		}
 
-  return Math.sqrt(variance);
- }
+		variance /= array.length;
+
+		return Math.sqrt(variance);
+	}
 }
