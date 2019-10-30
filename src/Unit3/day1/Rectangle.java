@@ -7,6 +7,7 @@ public class Rectangle {
     public Rectangle(int length, int width) {
         setLength(length);
         setLength(width);
+
     }
 
     public int getArea() {
@@ -26,6 +27,7 @@ public class Rectangle {
             throw new IllegalArgumentException("Length must be positive. Length=" + length);
         }
         this.length = length;
+
     }
 
     public int getWidth() {

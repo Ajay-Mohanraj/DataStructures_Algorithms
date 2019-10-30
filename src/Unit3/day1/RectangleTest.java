@@ -9,7 +9,8 @@ public class RectangleTest {
         System.out.println("Area: " + r1.getArea());
         System.out.println("Area: " + r2.getArea());
 
-        r2.setWidth(-1);
+        //r2.setWidth(-1);
+        r2.setLength(4);
         System.out.println("Area: " + r2.getArea());
     }
 }
