@@ -1,19 +1,26 @@
 package Unit3.day4;
 
+import java.util.ArrayList;
+
 public class Day4_ArrayListDemo {
 	public static void main(String[] args) {
-		BCAArrayList<String> list = new BCAArrayList<>();
+		ArrayList<String> strs = new ArrayList<>();
 
-		list.add("Sam");
-		list.add("Grace");
-		list.add(0, "Sara");
+		strs.add("Sam");
+		strs.add("Grace");
+		strs.add(0, "Sara");
 
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
+		for (String s : strs) {
+			System.out.println(s);
+		}
+		for (int i = 0; i < strs.size(); i++) {
+			System.out.println(strs.get(i));
 		}
 		System.out.println("\nRemoving Sam.");
-		list.remove("Sam");
+		strs.remove("Sam");
 
-		System.out.println(list);
+		System.out.println(strs);
+
+
 	}
 }

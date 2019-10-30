@@ -7,6 +7,17 @@ public class Day4_Practice2_RemoveDups {
 
     public static void removeConsecutiveDuplicates(ArrayList<Integer> a) {
         // TODO: removeConsecutiveDuplicates
+        int i = 0;
+        while (i < a.size() - 1) {
+            if (a.get(i).equals(a.get(i + 1))) {
+                a.remove(i+1);
+            }
+            else {
+                i++;
+            }
+        }
+
+
     }
 
     public static void main(String[] args) {
