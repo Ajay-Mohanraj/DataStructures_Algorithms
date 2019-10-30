@@ -1,6 +1,6 @@
 package Unit3.day1;
 
-public class FileFormatException extends Exception{
+public class FileFormatException extends Exception {
 	public FileFormatException() {
 	}
 

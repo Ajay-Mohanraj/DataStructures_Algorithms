@@ -15,7 +15,7 @@ public class Loan {
 	 * Construct a loan with specified annual interest rate, number of years and
 	 * loan amount
 	 */
-	public Loan(double annualInterestRate, int numberOfYears, double loanAmount) throws IllegalArgumentException {
+	public Loan(double annualInterestRate, int numberOfYears, double loanAmount) {
 		setAnnualInterestRate(annualInterestRate);
 		setNumberOfYears(numberOfYears);
 		setLoanAmount(loanAmount);
@@ -31,7 +31,7 @@ public class Loan {
 	/** Set a new annualInterestRate */
 	public void setAnnualInterestRate(double annualInterestRate) {
 		if (annualInterestRate <= 0) {
-			throw new IllegalArgumentException("Rate must be >= 0");
+			throw new IllegalArgumentException("Rate must be > 0");
 		}
 		this.annualInterestRate = annualInterestRate;
 	}
@@ -44,7 +44,7 @@ public class Loan {
 	/** Set a new numberOfYears */
 	public void setNumberOfYears(int numberOfYears) {
 		if (numberOfYears <= 0) {
-			throw new IllegalArgumentException("Rate must be >= 0");
+			throw new IllegalArgumentException("Rate must be > 0");
 		}
 		this.numberOfYears = numberOfYears;
 	}
@@ -57,7 +57,7 @@ public class Loan {
 	/** Set a newloanAmount */
 	public void setLoanAmount(double loanAmount) {
 		if (loanAmount <= 0) {
-			throw new IllegalArgumentException("Rate must be >= 0");
+			throw new IllegalArgumentException("Rate must be > 0");
 		}
 		this.loanAmount = loanAmount;
 	}
