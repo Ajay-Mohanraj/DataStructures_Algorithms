@@ -57,10 +57,13 @@ public class Ex12_6 {
   }
 
 
-  public static int hexToDecimal(String hex) {
+  public static int hexToDecimal(String hex) throws NumberFormatException {
     int decimalValue = 0;
     for (int i = 0; i < hex.length(); i++) {
       char hexChar = hex.charAt(i);
+      if (!((hexChar >= '0' && hexChar <= '9') || (hexChar >= 'A' && hexChar <= 'F') || (hexChar >= 'a' && hexChar <= 'f'))) {
+          throw new NumberFormatException();
+      }
       decimalValue = decimalValue * 16 + hexCharToDecimal(hexChar);
     }
     
@@ -68,6 +71,7 @@ public class Ex12_6 {
   }
 
   public static int hexCharToDecimal(char ch) {
+    ch = Character.toUpperCase(ch);
     if (ch >= 'A' && ch <= 'F')
       return 10 + ch - 'A';
     else // ch is '0', '1', ..., or '9'
