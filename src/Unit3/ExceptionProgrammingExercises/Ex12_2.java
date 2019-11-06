@@ -9,6 +9,7 @@ public class Ex12_2 {
 		boolean sumCompleted = false;
 
 		while (!sumCompleted) {
+			System.out.println("Please enter 2 integers.");
 			try {
 				int num1 = in.nextInt();
 				int num2 = in.nextInt();
@@ -19,7 +20,7 @@ public class Ex12_2 {
 
 			}
 			catch (InputMismatchException iME) {
-				System.out.println("Your input was not an integer. Please enter 2 integers.");
+				System.out.println("\nYour input was not an integer.");
 				in.nextLine();
 			}
 		}

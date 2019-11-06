@@ -1,10 +1,12 @@
 package Unit3.day4;
 
+import Unit3.BCALinkedList;
+
 import java.util.Random;
 
 public class BCAListTest {
     public static void main(String args[]) {
-        BCAList<Integer> l = new BCAArrayList<>();
+        BCAList<Integer> l = new BCALinkedList<>();
         Random rand = new Random(1000);
 
         if (l.isEmpty())
