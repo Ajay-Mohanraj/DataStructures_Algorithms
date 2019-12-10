@@ -1,10 +1,13 @@
 package Unit4.PostFixCalculator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Tokenizer {
 	private char[] tokenStr = null;
 	private int pos;
+	ArrayList<Character> opArr = new ArrayList<>(Arrays.asList('+', '-', '*', '/'));
 	public Tokenizer(String str) {
 		tokenStr = str.toCharArray();
 	}
@@ -49,6 +52,20 @@ public class Tokenizer {
 		return (pos < tokenStr.length);
 	}
 
+	private ParenToken readParenToken() throws InvalidExpressionException {
+		char paren = tokenStr[pos];
+		pos++;
+		if (paren == '(') {
+			return new LeftParenToken();
+		}
+		else if (paren == ')') {
+			return new RightParenToken();
+		}
+		else {
+			throw new InvalidExpressionException();
+		}
+	}
+
 
 	public Token nextToken() throws InvalidExpressionException {
 		skipSpaces();
@@ -59,8 +76,11 @@ public class Tokenizer {
 		if (Character.isDigit(tokenStr[pos])) {
 			return readNumberToken();
 		}
-		else {
+		else if (opArr.contains(tokenStr[pos])){
 			return readOperatorToken();
+		}
+		else {
+			return readParenToken();
 		}
 	}
 }

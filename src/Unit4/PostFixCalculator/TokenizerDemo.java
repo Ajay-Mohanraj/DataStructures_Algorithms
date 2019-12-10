@@ -17,8 +17,11 @@ public class TokenizerDemo {
 				System.out.print(op.operator + ": ");
 				System.out.println(op.eval(42, 12));
 			}
-			else {
+			else if (t instanceof NumberToken){
 				System.out.println("Num token: " + t);
+			}
+			else if (t instanceof ParenToken){
+				System.out.println("Paren token: " + t);
 			}
 
 		}
