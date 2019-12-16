@@ -10,4 +10,13 @@ public abstract class OperatorToken extends Token {
 		return "" + operator;
 	}
 	public abstract double eval(double a, double b);
+
+	public int getPrecedence() {
+		if (operator == '*' || operator == '/') {
+			return 2;
+		}
+		else {
+			return 1;
+		}
+	}
 }

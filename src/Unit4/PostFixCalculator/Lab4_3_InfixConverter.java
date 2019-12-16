@@ -16,18 +16,41 @@ public class Lab4_3_InfixConverter {
 		throw an exception for some improperly formatted inputs.
 	 */
 	public static String infixToPostfix(String s) throws Exception {
-		Stack<OperatorToken> opstack = new Stack<OperatorToken>();
+		Stack<Token> opstack = new Stack<>();
 		String output = "";
 		Tokenizer tk = new Tokenizer(s);
 
 		while (tk.hasMoreTokens()) {
 			Token t = tk.nextToken();
 			if (t instanceof NumberToken) {
-				output += ((NumberToken)t).value;
+				output += ((int)((NumberToken)t).value) + " ";
 			}
-			//else if ()
+			else if (t instanceof LeftParenToken) {
+				opstack.push(t);
+			}
+			else if (t instanceof RightParenToken) {
+				while (!(opstack.peek() instanceof LeftParenToken)) {
+
+					output += opstack.pop() + " ";
+				}
+				// removes that the '(' the while loop was checking for
+				opstack.pop();
+			}
+			else if (t instanceof OperatorToken) {
+				OperatorToken op = (OperatorToken)t;
+				// while does not hit left paren and
+				while (!opstack.isEmpty()
+						&&(opstack.peek() instanceof OperatorToken)
+						&& (((OperatorToken)opstack.peek()).getPrecedence() >= op.getPrecedence())) {
+					output += opstack.pop() + " ";
+				}
+				opstack.push(op);
+			}
 		}
-		return "";
+		while (!(opstack.isEmpty())) {
+			output += opstack.pop().toString() + " ";
+		}
+		return output;
 	}
 
 	/**
@@ -54,9 +77,11 @@ public class Lab4_3_InfixConverter {
 				System.out.println("\t Answer: " + answer);
 			}
 			catch (Exception ex) {
+				ex.printStackTrace();
 				System.out.println(ex.getMessage());
 			}
 		}
 	}
 }
+
 

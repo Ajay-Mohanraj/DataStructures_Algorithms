@@ -83,7 +83,7 @@ public class Lab4_1_ParenChecker {
 			throw new InputMismatchException("At end of input -- expecting " + stack.pop());
 		}
 		else {
-			throw new InputMismatchException("The parenthesis in the file are valid!");
+			System.out.println("The parenthesis in the file are valid!");
 		}
 	}
 }
