@@ -10,5 +10,11 @@ public class OpAddToken extends OperatorToken {
 		return a + b;
 	}
 
+	@Override
+	public int getPrecedence() {
+		return 1;
+	}
+
+
 
 }

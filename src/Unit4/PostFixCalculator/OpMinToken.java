@@ -10,5 +10,8 @@ public class OpMinToken extends OperatorToken {
 		return a - b;
 	}
 
+	public int getPrecedence() {
+		return 1;
+	}
 
 }

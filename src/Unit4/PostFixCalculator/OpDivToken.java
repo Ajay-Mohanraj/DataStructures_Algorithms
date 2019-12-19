@@ -10,4 +10,7 @@ public class OpDivToken extends OperatorToken {
 		return a / b;
 	}
 
+	public int getPrecedence() {
+		return 2;
+	}
 }
