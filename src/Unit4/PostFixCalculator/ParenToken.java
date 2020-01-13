@@ -10,6 +10,4 @@ public abstract class ParenToken extends Token {
 	public String toString() {
 		return "" + paren;
 	}
-
-
 }
