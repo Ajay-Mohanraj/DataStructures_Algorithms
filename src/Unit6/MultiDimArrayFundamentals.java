@@ -188,8 +188,22 @@ public class MultiDimArrayFundamentals {
      * This method must perform a deep copy of the contents of row1 and row2.
      */
     public static int[][] packRows(int[] row1, int[] row2) {
-        int[][] arr = {row1, row2};
-        return deepCopy(arr);
+        //int[][] arr = {row1, row2};
+        //return deepCopy(arr);
+
+        int[][] arr = new int[2][];
+        arr[0] = new int[row1.length];
+        arr[1] = new int[row2.length];
+
+
+        for (int j = 0; j < row1.length; j++) {
+            arr[0][j] = row1[j];
+        }
+        for (int j = 0; j < row2.length; j++) {
+            arr[1][j] = row2[j];
+        }
+
+        return arr;
     }
 
 

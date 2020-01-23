@@ -2,46 +2,94 @@ package Unit6.Connect4;
 
 /** Implements a ConnectFour board */
 public class Board {
-  static final int ROWS = 6; // The number of rows on the board.
-  static final int COLUMNS = 7; // The number of columns on the board.
+	static final int ROWS = 6; // The number of rows on the board.
+	static final int COLUMNS = 7; // The number of columns on the board.
 
-  // board is the instance variable that stores the actual board, a 2-array of chars.
-  // The possible characters stored in the board include:
-  //  ' ' - Empty Space
-  //  'R' - Red checker
-  //  'Y' - Yellow checker
-  private char[][] board;
+	// board is the instance variable that stores the actual board, a 2d-array of chars.
+	// The possible characters stored in the board include:
+	//  ' ' - Empty Space
+	//  'R' - Red checker
+	//  'Y' - Yellow checker
+	private char[][] board;
 
-  /** Constructor of a Board object.
-    *
-    * Instantiates the 'board' variable and initializes all of the cells to ' '.
-    */
-  public Board() {
-  }
+	/** Constructor of a Board object.
+	 *
+	 * Instantiates the 'board' variable and initializes all of the cells to ' '.
+	 */
+	public Board() {
+		this.board = new char[ROWS][COLUMNS];
+		for (int i = 0; i < ROWS; i++) {
+			for (int j = 0; j < COLUMNS; j++) {
+				board[i][j] = ' ';
+			}
+		}
+	}
 
-  /** Writes the current board to System.out, per the format in the assignment PDF. */
-  public void draw() {
-  }
+	/** Writes the current board to System.out, per the format in the assignment PDF. */
+	public void draw() {
+		for (int i = 0; i < ROWS; i++) {
+			for (int j = 0; j < COLUMNS; j++) {
+				if (j == 0) {
+					System.out.print("|" + board[i][j] + "|");
+				}
+				else {
+					System.out.print( board[i][j] + "|");
+				}
+			}
+			System.out.println();
+		}
+	}
 
-  /** Attempts to drop the specified checker in the specified column.  If the checker is
-    * successfully dropped, the method adds the checker to the board variable and returns true.
-    * If the specified column is full, the method returns false.
-    */
-  public boolean dropChecker(int column, char checker) {
-    return false;
-  }
 
-  /** Determines if the game has a winner.  The method returns true if either user
-    * has four in a row in any direction.
-    **/
-  public boolean checkWinner() {
-    return false;
-  }
 
-  /** Determines if the game is a draw.
-    * This method assumes the user already checked if there is a winner via a call to
-    * checkWinner. This method returns true if there are no more blank squares. */
-  public boolean checkDraw() {
-    return false;
-  }
+	/** Attempts to drop the specified checker in the specified column.  If the checker is
+	 * successfully dropped, the method adds the checker to the board variable and returns true.
+	 * If the specified column is full, the method returns false.
+	 */
+	public boolean dropChecker(int column, String color) {
+		char checker = color.equals("red") ? 'R' : 'Y';
+		for (int i = ROWS-1; i >= 0; i--) {
+			if (board[i][column] == ' ') {
+				board[i][column] = checker;
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/** Determines if the game has a winner.  The method returns true if either user
+	 * has four in a row in any direction.
+	 **/
+	public boolean checkWinner() {
+
+		return (checkVerticalWinner() || checkHorizontalWinner() || checkDiagonalWinner());
+	}
+
+	private boolean checkVerticalWinner() {
+
+		return false;
+	}
+
+	private boolean checkHorizontalWinner() {
+		return false;
+	}
+
+	private boolean checkDiagonalWinner() {
+		return false;
+	}
+
+	/** Determines if the game is a draw.
+	 * This method assumes the user already checked if there is a winner via a call to
+	 * checkWinner. This method returns true if there are no more blank squares. */
+	public boolean checkDraw() {
+		for (int i = 0; i < ROWS; i++) {
+			for (int j = 0; j < COLUMNS; j++) {
+				if (board[i][j] == ' ') {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 }
+
