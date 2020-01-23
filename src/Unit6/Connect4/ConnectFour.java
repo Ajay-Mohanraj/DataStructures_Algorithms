@@ -13,17 +13,20 @@ public class ConnectFour {
 		int player = 0;  // Player 0 is red; Player 1 is yellow.
 
 		Board board = new Board();
-		board.draw();
 		Scanner input = new Scanner(System.in);
-
+		String color = " ";
 		// while there isn't a winner AND there isn't a draw
 		while (board.checkWinner() == false && board.checkDraw() == false) {
 			board.draw();
 			System.out.print("-----------------\n");
-			String color = player++ % 2 == 0 ? "red" : "yellow";
+			color = player++ % 2 == 0 ? "red" : "yellow";
 			System.out.printf("Drop a %s disk at column (0-6): ", color);
-			int chooseColumn = input.nextInt();
-			board.dropChecker(chooseColumn, color);
+			int chosenColumn = input.nextInt();
+			boolean columnEmpty = board.dropChecker(chosenColumn, color);
+			if (!columnEmpty) {
+				System.out.println("\nColumn is full. Please enter a different column");
+				player--;
+			}
 		}
 
 		//
@@ -31,5 +34,15 @@ public class ConnectFour {
 		//   Determine which case is true and print out the final board along with a message
 		//  to the user.
 		//
+		if (board.checkDraw()) {
+			System.out.println("\nThe game ended in a draw.");
+		}
+
+		else {
+			System.out.println("\n" + color + " wins!");
+		}
+
+		System.out.println("Here is the final board: ");
+		board.draw();
 	}
 }

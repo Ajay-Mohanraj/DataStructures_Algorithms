@@ -10,7 +10,7 @@ public class Board {
 	//  ' ' - Empty Space
 	//  'R' - Red checker
 	//  'Y' - Yellow checker
-	private char[][] board;
+	public char[][] board;
 
 	/** Constructor of a Board object.
 	 *
@@ -66,7 +66,17 @@ public class Board {
 	}
 
 	private boolean checkVerticalWinner() {
-
+		for (int j = 0; j < COLUMNS; j++) {
+			for (int i = 0; i <= ROWS-4; i++) {
+				char hole1 = board[i][j];
+				char hole2 = board[i+1][j];
+				char hole3 = board[i+2][j];
+				char hole4 = board[i+3][j];
+				if (hole1 != ' ' && hole1 == hole2 && hole1 == hole3 && hole1 == hole4) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
