@@ -101,7 +101,7 @@ public class Board {
 		for (int i = 0; i < ROWS; i++) {
 			for (int j = 0; j < COLUMNS; j++) {
 
-				// checking right diagonal down DONE
+				// checking right diagonal
 				try {
 					char hole1 = board[i][j];
 					char hole2 = board[i+1][j+1];
@@ -116,42 +116,12 @@ public class Board {
 
 				}
 
-				// checking left diagonal down DONE
+				// checking left diagonal
 				try {
 					char hole1 = board[i][j];
 					char hole2 = board[i+1][j-1];
 					char hole3 = board[i+2][j-2];
 					char hole4 = board[i+3][j-3];
-
-					if (hole1 != ' ' && hole1 == hole2 && hole1 == hole3 && hole1 == hole4) {
-						return true;
-					}
-				}
-				catch (ArrayIndexOutOfBoundsException e) {
-
-				}
-
-				// checking left diagonal up DONE
-				try {
-					char hole1 = board[i][j];
-					char hole2 = board[i-1][j-1];
-					char hole3 = board[i-2][j-2];
-					char hole4 = board[i-3][j-3];
-
-					if (hole1 != ' ' && hole1 == hole2 && hole1 == hole3 && hole1 == hole4) {
-						return true;
-					}
-				}
-				catch (ArrayIndexOutOfBoundsException e) {
-
-				}
-
-				// checking right diagonal up
-				try {
-					char hole1 = board[i][j];
-					char hole2 = board[i-1][j+1];
-					char hole3 = board[i-2][j+2];
-					char hole4 = board[i-3][j+3];
 
 					if (hole1 != ' ' && hole1 == hole2 && hole1 == hole3 && hole1 == hole4) {
 						return true;
