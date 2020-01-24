@@ -81,10 +81,87 @@ public class Board {
 	}
 
 	private boolean checkHorizontalWinner() {
+		for (int i = 0; i < ROWS; i++) {
+			for (int j = 0; j <= COLUMNS-4; j++) {
+				char hole1 = board[i][j];
+				char hole2 = board[i][j+1];
+				char hole3 = board[i][j+2];
+				char hole4 = board[i][j+3];
+				if (hole1 != ' ' && hole1 == hole2 && hole1 == hole3 && hole1 == hole4) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
 	private boolean checkDiagonalWinner() {
+		// for loops running through each block and checking the right and left (down) diagonals
+		// exceptions handled in try and catch block implemented inside of a for loop
+		for (int i = 0; i < ROWS; i++) {
+			for (int j = 0; j < COLUMNS; j++) {
+
+				// checking right diagonal down DONE
+				try {
+					char hole1 = board[i][j];
+					char hole2 = board[i+1][j+1];
+					char hole3 = board[i+2][j+2];
+					char hole4 = board[i+3][j+3];
+
+					if (hole1 != ' ' && hole1 == hole2 && hole1 == hole3 && hole1 == hole4) {
+						return true;
+					}
+				}
+				catch (ArrayIndexOutOfBoundsException e) {
+
+				}
+
+				// checking left diagonal down DONE
+				try {
+					char hole1 = board[i][j];
+					char hole2 = board[i+1][j-1];
+					char hole3 = board[i+2][j-2];
+					char hole4 = board[i+3][j-3];
+
+					if (hole1 != ' ' && hole1 == hole2 && hole1 == hole3 && hole1 == hole4) {
+						return true;
+					}
+				}
+				catch (ArrayIndexOutOfBoundsException e) {
+
+				}
+
+				// checking left diagonal up DONE
+				try {
+					char hole1 = board[i][j];
+					char hole2 = board[i-1][j-1];
+					char hole3 = board[i-2][j-2];
+					char hole4 = board[i-3][j-3];
+
+					if (hole1 != ' ' && hole1 == hole2 && hole1 == hole3 && hole1 == hole4) {
+						return true;
+					}
+				}
+				catch (ArrayIndexOutOfBoundsException e) {
+
+				}
+
+				// checking right diagonal up
+				try {
+					char hole1 = board[i][j];
+					char hole2 = board[i-1][j+1];
+					char hole3 = board[i-2][j+2];
+					char hole4 = board[i-3][j+3];
+
+					if (hole1 != ' ' && hole1 == hole2 && hole1 == hole3 && hole1 == hole4) {
+						return true;
+					}
+				}
+				catch (ArrayIndexOutOfBoundsException e) {
+
+				}
+			}
+		}
 		return false;
 	}
 
