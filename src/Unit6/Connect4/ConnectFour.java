@@ -11,6 +11,7 @@ public class ConnectFour {
 		Board board = new Board();
 		Scanner input = new Scanner(System.in);
 		String color = " ";
+
 		// while there isn't a winner AND there isn't a draw
 		while (board.checkWinner() == false && board.checkDraw() == false) {
 			board.draw();

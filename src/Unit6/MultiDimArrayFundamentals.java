@@ -114,7 +114,7 @@ public class MultiDimArrayFundamentals {
      * If "row" is invalid, the method throws an ArrayIndexOutOfBoundsException.
      */
     public static int[] getRow(int[][] arr, int row) {
-        if (row < 0 || row > arr.length) {
+        if (row < 0 || row >= arr.length) {
             throw new IndexOutOfBoundsException();
         }
 
@@ -135,7 +135,8 @@ public class MultiDimArrayFundamentals {
 
         int[] array = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            if (col > arr[i].length) {
+            // column is 2 array is size 2, it will error out, there should be >=
+            if (col >= arr[i].length) {
                 throw new ArrayIndexOutOfBoundsException();
             }
             array[i] = arr[i][col];
