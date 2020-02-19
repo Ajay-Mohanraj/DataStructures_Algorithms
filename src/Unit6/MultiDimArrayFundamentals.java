@@ -75,7 +75,7 @@ public class MultiDimArrayFundamentals {
 
 
         int row = pos / arr[0].length;
-        if (row < 0 || row > arr.length) {
+        if (row < 0 || row >= arr.length) {
             throw new IndexOutOfBoundsException();
         }
         int column = pos % arr[0].length;
@@ -95,15 +95,16 @@ public class MultiDimArrayFundamentals {
      */
     public static int getValueJagged(int[][] arr, int pos) {
 
+
+        int pos1 = 0;
         for (int i = 0; i < arr.length; i++) {
-            for (int k = 0; k < arr[i].length; k++) {
-                if (pos == 0) {
-                    return arr[i][k];
+            for (int j = 0; j < arr[i].length; j++) {
+                if (pos1++ == pos) {
+                    return arr[i][j];
                 }
-                pos--;
             }
         }
-        throw new ArrayIndexOutOfBoundsException();
+        throw new IndexOutOfBoundsException();
     }
 
     /**
@@ -150,9 +151,6 @@ public class MultiDimArrayFundamentals {
      * IllegalArgumentException
      */
     public static int[][] reshape(int[] arr, int rowLength) {
-        if (arr.length % rowLength != 0) {
-            throw new IllegalArgumentException();
-        }
         int[][] array = new int[arr.length / rowLength][rowLength];
         int pos = 0;
         for (int i = 0; i < array.length; i++) {

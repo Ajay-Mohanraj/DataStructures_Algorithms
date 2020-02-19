@@ -1,4 +1,6 @@
-package Unit6;
+package Unit6.MagicBox;
+
+import Unit6.MultiDimArrayFundamentals;
 
 import java.io.FileReader;
 import java.nio.file.Files;
