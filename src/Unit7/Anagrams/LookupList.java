@@ -80,7 +80,7 @@ public class LookupList {
 	}
 
 
-	public static ArrayList<String> mergeSort(ArrayList<String> wordList) {
+	private static ArrayList<String> mergeSort(ArrayList<String> wordList) {
 
 		int n = wordList.size();
 
@@ -101,7 +101,7 @@ public class LookupList {
 		return sorted;
 	}
 
-	public static ArrayList<String> mergeLists(ArrayList<String> listA, ArrayList<String> listB) {
+	private static ArrayList<String> mergeLists(ArrayList<String> listA, ArrayList<String> listB) {
 		ArrayList<String> merged = new ArrayList<String>(listA.size() + listB.size());
 		
 		int a = 0;

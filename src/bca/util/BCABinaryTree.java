@@ -97,4 +97,17 @@ public class BCABinaryTree<E extends Comparable<E>> {
 			inorder(n.right);
 		}
 	}
+	public void printTree() {
+		printTree(root, ": ", "");
+		// ask respass if I can make private function
+	}
+	private void printTree(BCATreeNode<E> n, String side, String indent) {
+		System.out.println(indent + side + n.element);
+		if (n.left != null) {
+			printTree(n.left, "L: ", indent+"  ");
+		}
+		if (n.right != null) {
+			printTree(n.right, "R: ", indent+"  ");
+		}
+	}
 }
