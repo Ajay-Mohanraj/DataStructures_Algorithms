@@ -99,7 +99,6 @@ public class BCABinaryTree<E extends Comparable<E>> {
 	}
 	public void printTree() {
 		printTree(root, ": ", "");
-		// ask respass if I can make private function
 	}
 	private void printTree(BCATreeNode<E> n, String side, String indent) {
 		System.out.println(indent + side + n.element);
