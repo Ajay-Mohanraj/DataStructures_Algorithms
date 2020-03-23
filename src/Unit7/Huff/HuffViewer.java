@@ -163,7 +163,7 @@ public class HuffViewer {
 
 		VBox inputField = new VBox(INTERNAL_PADDING);
 		HuffChooser chooser = new HuffChooser(false, "Directory");
-		CheckBox hf = new CheckBox("test .hf files");
+		CheckBox hf = new CheckBox("Unit8.test .hf files");
 		Button test = new Button("Test");
 		test.setOnAction((clicked) -> test(chooser.getChosenFile(), hf.isSelected(), status, panel));
 		inputField.getChildren().addAll(chooser.render(), hf, test);
@@ -487,7 +487,7 @@ public class HuffViewer {
 				}
 			}
 			updater.stop();
-			updater.updateStatus(Status.Complete, "test complete");
+			updater.updateStatus(Status.Complete, "Unit8.test complete");
 			updater.addContent("Info", getInfo(times, toCompress.toArray(new File[toCompress.size()]), compressed));
 		});
 		thread.start();
