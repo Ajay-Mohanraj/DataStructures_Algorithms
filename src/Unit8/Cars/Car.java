@@ -231,3 +231,19 @@ abstract class ElectricCar extends Car {
 		this.charge -= (miles/this.milesOnMaxCharge);
 	}
 }
+
+interface SelfDriving {
+
+	/** @throws IllegalArgumentException if miles is negative. */
+	public void driveAutonomously(double miles);
+}
+
+interface Flying {
+
+	/** @throws IllegalArgumentException if miles is negative. */
+	public boolean canFly(double miles);
+
+	/** @throws IllegalArgumentException if miles is negative. */
+	public void fly(double miles);
+
+}
