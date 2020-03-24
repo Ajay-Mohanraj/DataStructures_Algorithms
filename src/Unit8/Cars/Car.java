@@ -203,7 +203,7 @@ abstract class ElectricCar extends Car {
 	 current charge.*/
 	public void drive(double miles) {
 		if (miles < 0 || !canDrive(miles)) {
-			throw new IllegalArgumentException("Miles is negative or you do not have enough fuel.");
+			throw new IllegalArgumentException("Miles is negative or you do not have enough charge.");
 		}
 		addMileage(miles);
 		decreaseCharge(miles);
