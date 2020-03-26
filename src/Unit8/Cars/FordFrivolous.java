@@ -15,11 +15,13 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying 
 
 	@Override
 	public void driveAutonomously(double miles) {
+
 		if (miles > getRemainingRange()) {
 			super.drive(getRemainingRange());
-			decreaseFuelLevel(miles); // 2x
 		}
-		super.drive(miles);
+		else {
+			super.drive(miles);
+		}
 		decreaseFuelLevel(miles); // 2x
 	}
 
