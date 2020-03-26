@@ -1,6 +1,6 @@
 package Unit8.Cars;
 
-public class ChevroletBird extends ElectricCar implements Flying{
+public class ChevroletBird extends ElectricCar implements Flying {
 
 	private boolean wingsOn;
 
