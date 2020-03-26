@@ -2,7 +2,7 @@ package Unit8.Cars;
 
 public class ChevroletBird extends ElectricCar implements Flying{
 
-	boolean wingsOn;
+	private boolean wingsOn;
 
 	/** Chevrolet Birds have a 250 mile range on a full charge. They
 	 start with their wings retracted.*/
