@@ -33,7 +33,7 @@ public abstract class Car {
 	 @throws IllegalArgumentException if miles is negative.*/
 	public boolean canDrive(double miles) {
 		if (miles < 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Miles is negative.");
 		}
 		return getRemainingRange() >= miles;
 	}
@@ -46,7 +46,7 @@ public abstract class Car {
 	/** Gives String representation of Car as
 	 "< make and model> (<mileage> mi) "*/
 	public String toString() {
-		return this.make + " " + this.model + "(" + this.mileage + ")";
+		return this.make + " " + this.model + "(" + this.mileage + " mi)";
 	}
 
 	/** Returns how many miles have been driven so far (odometer). */
