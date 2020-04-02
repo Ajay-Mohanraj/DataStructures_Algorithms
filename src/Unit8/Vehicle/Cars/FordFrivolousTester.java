@@ -1,4 +1,4 @@
-package Unit8.Cars;
+package Unit8.Vehicle.Cars;
 
 public class FordFrivolousTester {
 	// By extension and implementation, also tests Car, GasPoweredCsr, Flying, & SelfDriving

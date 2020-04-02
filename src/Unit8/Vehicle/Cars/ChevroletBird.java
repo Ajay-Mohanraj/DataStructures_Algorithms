@@ -1,4 +1,4 @@
-package Unit8.Cars;
+package Unit8.Vehicle.Cars;
 
 public class ChevroletBird extends ElectricCar implements Flying {
 

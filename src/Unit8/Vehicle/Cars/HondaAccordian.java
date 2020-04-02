@@ -1,4 +1,4 @@
-package Unit8.Cars;
+package Unit8.Vehicle.Cars;
 
 public class HondaAccordian extends GasPoweredCar {
 	/** modelYear specifies the year this car was made. Honda cares
@@ -21,6 +21,6 @@ public class HondaAccordian extends GasPoweredCar {
 	 Coding tip: Write this method to re-use the behavior of the
 	 superclass toString. Don’t copy-and-paste the same code here. */
 	public String toString() {
-		return this.modelYear + super.toString();
+		return this.modelYear + " " + super.toString();
 	}
 }

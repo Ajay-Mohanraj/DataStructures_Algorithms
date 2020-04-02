@@ -1,4 +1,4 @@
-package Unit8.Cars;
+package Unit8.Vehicle.Cars;
 
 public abstract class ElectricCar extends Car {
 	private double milesOnMaxCharge;

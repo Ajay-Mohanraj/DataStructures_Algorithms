@@ -1,4 +1,4 @@
-package Unit8.Cars;
+package Unit8.Vehicle.Cars;
 
 public class TeslaModelZ extends ElectricCar implements SelfDriving {
 

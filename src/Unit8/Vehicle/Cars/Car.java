@@ -1,4 +1,4 @@
-package Unit8.Cars;
+package Unit8.Vehicle.Cars;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public abstract class Car {
 	/** Gives String representation of Car as
 	 "< make and model> (<mileage> mi) "*/
 	public String toString() {
-		return this.make + " " + this.model + "(" + this.mileage + " mi)";
+		return this.make + " " + this.model + " (" + String.format("%.1f", this.mileage) + ")";
 	}
 
 	/** Returns how many miles have been driven so far (odometer). */
