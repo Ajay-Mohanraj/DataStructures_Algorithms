@@ -46,7 +46,7 @@ public abstract class Car {
 	/** Gives String representation of Car as
 	 "< make and model> (<mileage> mi) "*/
 	public String toString() {
-		return this.make + " " + this.model + " (" + String.format("%.1f", this.mileage) + ")";
+		return this.make + " " + this.model + " (" + String.format("%.1f", this.mileage) + " mi)";
 	}
 
 	/** Returns how many miles have been driven so far (odometer). */

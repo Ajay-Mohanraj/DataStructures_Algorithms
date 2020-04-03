@@ -19,7 +19,7 @@ public class TestHondaAccordian1_Constructors extends BCATestScenario {
 
         assertEquals(c1.getRemainingRange(), c1.getFuelCapacity() * c1.getMPG(), .1, "Remaining range of car not correct at creation.");
 
-        assertEquals(c1.toString(), "2018 Honda Accordian (0.0)", "toString does not match");
+        assertEquals(c1.toString(), "2018 Honda Accordian (0.0 mi)", "toString does not match");
 
 
         return getFailedCount();

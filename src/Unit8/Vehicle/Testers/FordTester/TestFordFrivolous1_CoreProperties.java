@@ -15,7 +15,7 @@ public class TestFordFrivolous1_CoreProperties extends BCATestScenario {
 		assertEquals(f1.getFuelLevel(), f1.getFuelCapacity(), DELTA, "Fuel level should equal fuel capacity at creation.");
 		assertEquals(f1.getMPG(), 23.6, DELTA, "MPG should equal 23.6");
 		assertEquals(f1.getRemainingRange(), f1.getFuelLevel()*f1.getMPG(), DELTA, "Range should equal 472.");
-		assertEquals(f1.toString(), "Ford Frivolous (1.0)", "toStrings do not match.");
+		assertEquals(f1.toString(), "Ford Frivolous (1.0 mi)", "toStrings do not match.");
 		return getFailedCount();
 	}
 }

@@ -18,8 +18,9 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying 
 
 		if (!canDrive(miles*2)) {
 			// System.out.println("Remaining range is " + getRemainingRange());
-			super.drive(getRemainingRange()/2.0);
-			decreaseFuelLevel(miles/2); // twice
+			double milesLeft = getRemainingRange()/2.0;
+			super.drive(milesLeft);
+			decreaseFuelLevel(milesLeft); // twice
 		}
 		else {
 			super.drive(miles);

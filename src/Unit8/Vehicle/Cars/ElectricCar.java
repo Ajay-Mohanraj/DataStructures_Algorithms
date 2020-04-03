@@ -40,7 +40,7 @@ public abstract class ElectricCar extends Car {
 	/** Returns how many more miles the car can currently go without
 	 recharging. */
 	public double getRemainingRange () {
-		return this.charge * this.milesOnMaxCharge/100;
+		return this.charge * (this.milesOnMaxCharge/100);
 	}
 
 	/** Returns how many miles the car could go on a full charge. */
@@ -56,6 +56,7 @@ public abstract class ElectricCar extends Car {
 	/** Decreases the amount of energy in the battery based by the
 	 number of miles passed as an argument. */
 	protected void decreaseCharge(double miles) {
-		this.charge -= (miles/this.milesOnMaxCharge);
+
+		this.charge = (getRemainingRange() - miles) / (this.milesOnMaxCharge/100);
 	}
 }
