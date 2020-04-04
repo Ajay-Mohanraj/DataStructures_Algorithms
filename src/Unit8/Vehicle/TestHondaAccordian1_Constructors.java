@@ -1,8 +1,5 @@
-package Unit8.Vehicle.Testers.HondaTester;
+package Unit8.Vehicle;
 
-
-import Unit8.Vehicle.Cars.HondaAccordian;
-import Unit8.Vehicle.Testers.BCATestScenario;
 
 public class TestHondaAccordian1_Constructors extends BCATestScenario {
 

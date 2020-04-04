@@ -1,4 +1,4 @@
-package Unit8.Vehicle.Cars;
+package Unit8.Vehicle;
 
 import java.util.List;
 
@@ -77,7 +77,7 @@ public abstract class Car {
 		int days = 0;
 		for (double miles : milesEachDay) {
 			if (miles < 0) {
-				throw new IllegalArgumentException();
+				throw new IllegalArgumentException("No day can be negative miles.");
 			}
 			if (canDrive(miles)) {
 				days++;

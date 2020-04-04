@@ -1,9 +1,5 @@
-package Unit8.Vehicle.Testers;
+package Unit8.Vehicle;
 
-
-import Unit8.Vehicle.Testers.FordTester.TestFordFrivolous1_CoreProperties;
-import Unit8.Vehicle.Testers.HondaTester.TestHondaAccordian1_Constructors;
-import Unit8.Vehicle.Testers.HondaTester.TestHondaAccordian2_Driving;
 
 public class RunBCATestScenarios {
     public static void main(String[] args) {
@@ -16,7 +12,8 @@ public class RunBCATestScenarios {
         BCATestScenario[] testList = {
                 new TestHondaAccordian1_Constructors(),
                 new TestHondaAccordian2_Driving(),
-                new TestFordFrivolous1_CoreProperties()
+                new TestFordFrivolous1_CoreProperties(),
+                new TestFordFrivolous2_Driving()
         };
 
         for (int i=0; i < testList.length; i++) {

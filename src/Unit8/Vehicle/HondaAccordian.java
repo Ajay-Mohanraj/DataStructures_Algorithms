@@ -1,4 +1,4 @@
-package Unit8.Vehicle.Cars;
+package Unit8.Vehicle;
 
 public class HondaAccordian extends GasPoweredCar {
 	/** modelYear specifies the year this car was made. Honda cares

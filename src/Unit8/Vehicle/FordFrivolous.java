@@ -1,4 +1,4 @@
-package Unit8.Vehicle.Cars;
+package Unit8.Vehicle;
 
 public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying {
 

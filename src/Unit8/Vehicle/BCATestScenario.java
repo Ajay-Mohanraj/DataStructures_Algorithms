@@ -1,4 +1,4 @@
-package Unit8.Vehicle.Testers;
+package Unit8.Vehicle;
 
 public abstract class BCATestScenario {
 

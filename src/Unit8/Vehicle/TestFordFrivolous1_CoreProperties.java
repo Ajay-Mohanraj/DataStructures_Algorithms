@@ -1,7 +1,4 @@
-package Unit8.Vehicle.Testers.FordTester;
-
-import Unit8.Vehicle.Cars.FordFrivolous;
-import Unit8.Vehicle.Testers.BCATestScenario;
+package Unit8.Vehicle;
 
 public class TestFordFrivolous1_CoreProperties extends BCATestScenario {
 

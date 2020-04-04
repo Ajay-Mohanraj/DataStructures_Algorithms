@@ -1,4 +1,4 @@
-package Unit8.Vehicle.Cars;
+package Unit8.Vehicle;
 
 public interface SelfDriving {
 	/** @throws IllegalArgumentException if miles is negative. */
