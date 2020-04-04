@@ -37,7 +37,7 @@ public class FordFrivolous extends GasPoweredCar implements SelfDriving, Flying 
 	@Override
 	public void fly(double miles) {
 		if (!canFly(miles)) {
-			throw new IllegalArgumentException("Miles is negative or you do not have enough fuel.");
+			throw new IllegalArgumentException("You do not have enough fuel.");
 		}
 		decreaseFuelLevel(miles*3);
 	}

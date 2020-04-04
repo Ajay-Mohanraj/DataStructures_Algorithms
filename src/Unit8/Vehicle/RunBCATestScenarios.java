@@ -13,7 +13,9 @@ public class RunBCATestScenarios {
                 new TestHondaAccordian1_Constructors(),
                 new TestHondaAccordian2_Driving(),
                 new TestFordFrivolous1_CoreProperties(),
-                new TestFordFrivolous2_Driving()
+                new TestFordFrivolous2_Driving(),
+                new TestFordFrivolous3_SelfDriving(),
+                new TestFordFrivolous4_Flying()
         };
 
         for (int i=0; i < testList.length; i++) {
