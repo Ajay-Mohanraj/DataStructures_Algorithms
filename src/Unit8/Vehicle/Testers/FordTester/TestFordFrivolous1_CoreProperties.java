@@ -7,8 +7,8 @@ public class TestFordFrivolous1_CoreProperties extends BCATestScenario {
 
 	@Override
 	public int runTest() {
-		// FordFrivolous f0 = new FordFrivolous(-1); do i need to check for this ?
-		// assertThrows(IllegalArgumentException.class, () -> new FordFrivolous(-1), "uhoh");
+
+		assertThrows(IllegalArgumentException.class, () -> new FordFrivolous(-1), "Mileage cannot be negative at creation.");
 		FordFrivolous f1 = new FordFrivolous(1);
 		assertEquals(f1.getMileage(), 1, DELTA, "Mileage should be 0 at creation.");
 		assertEquals(f1.getFuelCapacity(), 20, DELTA, "Fuel capacity should be 20.");

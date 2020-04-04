@@ -62,7 +62,7 @@ public abstract class Car {
 	 @throws IllegalArgumentException if miles is negative. */
 	protected void addMileage(double miles) {
 		if (miles < 0) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Miles cannot be negative.");
 		}
 		this.mileage = this.mileage + miles;
 	}

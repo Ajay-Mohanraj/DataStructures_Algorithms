@@ -33,8 +33,8 @@ public abstract class GasPoweredCar extends Car {
 	 @throws IllegalArgumentException if miles is too high given the
 	 current fuel.*/
 	public void drive(double miles) {
-		if (miles < 0 || !canDrive(miles)) {
-			throw new IllegalArgumentException("Miles is negative or you do not have enough fuel.");
+		if (!canDrive(miles)) {
+			throw new IllegalArgumentException("You do not have enough fuel.");
 		}
 		addMileage(miles);
 		decreaseFuelLevel(miles);
