@@ -81,6 +81,7 @@ public abstract class Car {
 			}
 			if (canDrive(miles)) {
 				days++;
+				drive(miles);
 			}
 			else {
 				return days;
