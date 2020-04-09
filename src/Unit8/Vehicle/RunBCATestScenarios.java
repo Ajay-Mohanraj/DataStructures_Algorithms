@@ -15,7 +15,13 @@ public class RunBCATestScenarios {
                 new TestFordFrivolous1_CoreProperties(),
                 new TestFordFrivolous2_Driving(),
                 new TestFordFrivolous3_SelfDriving(),
-                new TestFordFrivolous4_Flying()
+                new TestFordFrivolous4_Flying(),
+                new TestChevyBird1_CoreProperties(),
+                new TestChevyBird2_Driving(),
+                new TestChevyBird3_Flying(),
+                new TestTeslaModelZ1_CoreProperties(),
+                new TestTeslaModelZ2_Driving(),
+                new TestTeslaModelZ3_SelfDriving()
         };
 
         for (int i=0; i < testList.length; i++) {
