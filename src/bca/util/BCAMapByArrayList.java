@@ -180,7 +180,12 @@ public class BCAMapByArrayList implements BCAMap {
 	 */
 	@Override
 	public BCAEntry[] toArray() {
-		return new BCAEntry[0];
+		BCAEntry[] arr = new BCAEntry[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			arr[i] = (BCAEntry)(list.get(i));
+		}
+		return arr;
+
 	}
 
 	/**
@@ -188,7 +193,11 @@ public class BCAMapByArrayList implements BCAMap {
 	 */
 	@Override
 	public String[] keys() {
-		return new String[0];
+		String[] keys = new String[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			keys[i] = ((BCAEntry)(list.get(i))).key;
+		}
+		return keys;
 	}
 
 	/**
@@ -196,6 +205,10 @@ public class BCAMapByArrayList implements BCAMap {
 	 */
 	@Override
 	public Object[] values() {
-		return new Object[0];
+		Object[] vals = new Object[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			vals[i] = ((BCAEntry)(list.get(i))).value;
+		}
+		return vals;
 	}
 }
