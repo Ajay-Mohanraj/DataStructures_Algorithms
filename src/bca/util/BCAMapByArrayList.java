@@ -1,7 +1,5 @@
 package bca.util;
 
-import sun.java2d.pipe.NullPipe;
-
 public class BCAMapByArrayList implements BCAMap {
 	protected BCAArrayList list = new BCAArrayList();
 
