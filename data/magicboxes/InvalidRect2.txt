@@ -1,0 +1,9 @@
+5
+3
+1   8   25
+2   9   13
+11  10   3
+12   7   5
+14   6   4
+
+This rectangle is not normal.  (25 is out of range.)
