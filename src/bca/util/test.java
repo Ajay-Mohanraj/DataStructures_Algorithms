@@ -1,12 +1,15 @@
 package bca.util;
 
+import Unit8.Vehicle.FordFrivolous;
+
 public class test {
 	public static void main(String[] args) {
-		String s = "lol";
-		String b = s;
-		b = "Not lol";
-		System.out.println(s);
-		System.out.println(b);
-		System.out.println(b.compareTo(s));
+
+		FordFrivolous obj = new FordFrivolous(25);
+		BCAEntry e = new BCAEntry("b", obj);
+		System.out.println(obj.getMileage());
+		((FordFrivolous)(e.value)).drive(5);
+		System.out.println(((FordFrivolous)(e.value)).getMileage());
+		System.out.println(obj.getMileage());
 	}
 }

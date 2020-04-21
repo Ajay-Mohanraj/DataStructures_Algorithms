@@ -108,7 +108,8 @@ public class BCAMapByArrayList implements BCAMap {
 	 */
 	@Override
 	public Object getOrDefault(String key, Object defaultValue) {
-		return get(key) == null ? defaultValue : get(key);
+		Object val = get(key);
+		return val == null ? defaultValue : val;
 	}
 
 	/**
@@ -126,11 +127,10 @@ public class BCAMapByArrayList implements BCAMap {
 	public Object put(String key, Object value) {
 		checkNullParam(key);
 		checkNullParam(value);
-		Object previousVal;
 		for (int i = 0; i < list.size(); i++) {
 			BCAEntry entry = (BCAEntry)list.get(i);
 			if (entry.equals(key)) {
-				previousVal = entry.value;
+				Object previousVal = entry.value;
 				entry.value = value;
 				return previousVal;
 			}

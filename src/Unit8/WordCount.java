@@ -59,9 +59,13 @@ public class WordCount {
 		ArrayList<String> words = parseFile();
 
 		System.out.println();
-		wordCount(new BCAMapBaseline(), parseFile());
+		wordCount(new BCAMapBaseline(), words);
 
 		System.out.println();
-		wordCount(new BCAMapByArrayList(), parseFile());
+		wordCount(new BCAMapByArrayList(), words);
+
+		System.out.println();
+		System.out.println("Testing with 100 buckets.");
+		wordCount(new BCAMapByHashedArrayList(100), words);
 	}
 }

@@ -6,7 +6,7 @@ import java.util.Random;
 public class BCAMapTest {
 
     public static void main(String[] args) {
-        test (new BCAMapByArrayList());
+        test (new BCAMapByHashedArrayList(10));
     }
 
 	public static void test(BCAMap map) {
