@@ -8,6 +8,7 @@ public class BCAMapTest {
     public static void main(String[] args) {
         test (new BCAMapByHashedArrayList(100));
         test (new BCAMapByHashedLinkedList(100));
+        test (new BCAMapByHashedLinkedList(100));
     }
 
 	public static void test(BCAMap map) {

@@ -54,7 +54,7 @@ public class BCAMapByHashedLinkedList implements BCAMap{
 		BCAEntry node = buckets[bucket];
 		while (node != null) {
 			if (node.equals(key)) {
-				return true;
+				return node.value;
 			}
 			node = node.next;
 		}
@@ -117,7 +117,6 @@ public class BCAMapByHashedLinkedList implements BCAMap{
 			firstTime = false;
 		}
 
-		size--;
 		return null;
 	}
 
