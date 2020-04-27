@@ -6,7 +6,8 @@ import java.util.Random;
 public class BCAMapTest {
 
     public static void main(String[] args) {
-        test (new BCAMapByHashedArrayList(10));
+        test (new BCAMapByHashedArrayList(100));
+        test (new BCAMapByHashedLinkedList(100));
     }
 
 	public static void test(BCAMap map) {
@@ -28,7 +29,7 @@ public class BCAMapTest {
         else
             System.out.println("Failed 2");
 
-        if (map.getOrDefault("Luke", 18).equals(18))
+        if (map.getOrDefault("Luke", 33).equals(18))
             System.out.println("Passed 3");
         else
             System.out.println("Failed 3");
@@ -115,13 +116,17 @@ public class BCAMapTest {
         }
 
         map.clear();
+        int BOUND = 10000;
+        map.put(""+ (BOUND + 1), 42);
 
         long start = System.currentTimeMillis();
         for (int i = 0; i < 1000000; i++) {
-            String n = "" + r.nextInt(100);
+            String n = "" + r.nextInt(BOUND);
             map.put(n, ((Integer) map.getOrDefault(n, 0)) + 1);
         }
         long end = System.currentTimeMillis();
+
+        map.put(""+ (BOUND + 2), 43);
 
         double seconds = (end - start) / 1000.0;
         System.out.printf("Total seconds: %.3f\n", seconds);
@@ -131,10 +136,37 @@ public class BCAMapTest {
         else
             System.out.println("Failed 18");
 
-        if (map.get("" + 12).equals(10001))
+        if (map.get("" + 12).equals(95))
             System.out.println("Passed 19");
         else
-            System.out.println("Failed 189");
+            System.out.println("Failed 19");
+
+        if (map.size() == BOUND + 2)
+            System.out.println("Passed 20");
+        else
+            System.out.println("Failed 20");
+
+        //
+        // Verify that remove works in bulk
+        //
+        for (int i=0; i < BOUND; i++) {
+            map.remove(""+ i);
+        }
+
+        if (map.size() == 2)
+            System.out.println("Passed 21");
+        else
+            System.out.println("Failed 21");
+
+        if ((Integer)map.getOrDefault("" + (BOUND + 1), 0) == 42)
+            System.out.println("Passed 22");
+        else
+            System.out.println("Failed 22");
+
+        if ((Integer)map.getOrDefault("" + (BOUND + 2), 0) == 43)
+            System.out.println("Passed 23");
+        else
+            System.out.println("Failed 23");
 
     }
 }
